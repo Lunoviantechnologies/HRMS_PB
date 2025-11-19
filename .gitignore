@@ -31,3 +31,12 @@ build/
 
 ### VS Code ###
 .vscode/
+/target/
+/test-classes/
+/classes/
+/generated-sources/
+/generated-test-sources/
+
+src/main/resources/application-local.properties
+src/main/resources/application-prod.properties
+
