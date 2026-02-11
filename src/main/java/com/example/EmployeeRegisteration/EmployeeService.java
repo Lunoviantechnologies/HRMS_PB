@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.example.ArchievedEmployees.ArchivedEmployee;
+import com.example.ArchievedEmployees.ArchivedEmployeeRepository;
 import com.example.EmpDTO.EmployeeDTO;
-import com.example.employeeRegistrations.ArchivedEmployee;
-import com.example.employeeRegistrations.ArchivedEmployeeRepository;
 
 import jakarta.transaction.Transactional;
 

@@ -24,13 +24,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.example.ArchievedEmployees.ArchivedEmployee;
+import com.example.ArchievedEmployees.ArchivedEmployeeRepository;
 import com.example.EmpDTO.EmployeeDTO;
 import com.example.EmpDTO.EmployeeMapper;
 import com.example.EmpDTO.EmployeeUpdateDTO;
 import com.example.EmpDTO.UpdatingEmpInfo;
 import com.example.Notification.NotificationService;
-import com.example.employeeRegistrations.ArchivedEmployee;
-import com.example.employeeRegistrations.ArchivedEmployeeRepository;
 
 import jakarta.transaction.Transactional;
 
