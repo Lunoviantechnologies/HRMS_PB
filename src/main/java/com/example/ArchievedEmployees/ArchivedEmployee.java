@@ -1,4 +1,4 @@
-package com.example.employeeRegistrations;
+package com.example.ArchievedEmployees;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;

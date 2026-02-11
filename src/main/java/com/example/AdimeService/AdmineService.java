@@ -1,42 +1,30 @@
 package com.example.AdimeService;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.AdmineEntity.AdmineEntity;
-import com.example.AdmineInfo.Admineinfo;
 import com.example.Adminerepository.AdmineRepo;
 
 @Service
-public class AdmineService implements Admineinfo{
+public class AdmineService {
 
-	@Autowired
+    @Autowired
     private AdmineRepo admineRepo;
 
-	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;	
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
-    @Override
-    public AdmineEntity Admineregister(AdmineEntity adimeregister) {
-        return admineRepo.save(adimeregister);
+    // Optional helper methods (if needed later)
+
+    public AdmineEntity registerAdmin(AdmineEntity admin) {
+        admin.setPassword(passwordEncoder.encode(admin.getPassword()));
+        return admineRepo.save(admin);
     }
 
-    @Override
-    public boolean AdmineLoging(String email, String password) {
-        Optional<AdmineEntity> optionalAdmin = admineRepo.findByEmailAndPassword(email, password);
-        return optionalAdmin.isPresent();
+    public boolean validateLogin(String email, String password) {
+        AdmineEntity admin = admineRepo.findByEmail(email).orElse(null);
+        return admin != null && passwordEncoder.matches(password, admin.getPassword());
     }
-    @Override
-    public AdmineEntity getAdminByEmail(String email) {
-        Optional<AdmineEntity> optionalAdmin = admineRepo.findByEmail(email);
-        return optionalAdmin.orElse(null);
-    }		
 }
-
-	
-	
-	
-

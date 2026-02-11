@@ -29,6 +29,8 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_seq")
 	@SequenceGenerator(name = "employee_seq", sequenceName = "employee_seq", allocationSize = 1)
 	private Long id;
+	private String employeeId;
+	
 
     private String prefix;private String firstName;private String lastName;
    @Lob
@@ -93,6 +95,21 @@ public class Employee {
 	}
 	public Employee() {  }
 	public Long getId() {return id;	}	
+	public String getEmployeeId() {
+		return employeeId;
+	}
+	public void setEmployeeId(String employeeId) {
+		this.employeeId = employeeId;
+	}
+	// Employee.java
+	@Column(nullable = false)
+	private String employmentStatus = "ACTIVE";
+	// ACTIVE, RESIGNATION_SUBMITTED, NOTICE_PERIOD, EXITED, TERMINATED
+
+	private LocalDate resignationDate;
+	private LocalDate lastWorkingDay;
+
+	
 	public String getPassword() { return password;}public void setPassword(String password) {this.password = password;}
 	public void setId(Long id) {this.id = id;}public String getPrefix() {return prefix;	}
 	public void setPrefix(String prefix) {this.prefix = prefix;	}public String getFirstName() {	return firstName;}
@@ -126,6 +143,25 @@ public class Employee {
 		this.document1 = document1;}public byte[] getDocument2() {return document2;}public void setDocument2(byte[] document2) {this.document2 = document2;	}	public byte[] getDocument3() {
 		return document3;}public void setDocument3(byte[] document3) {this.document3 = document3;}public List<LeaveRequest> getLeaveRequests() {return leaveRequests;}
 		public void setLeaveRequests(List<LeaveRequest> leaveRequests) {this.leaveRequests = leaveRequests;}
+		
+	public String getEmploymentStatus() {
+			return employmentStatus;
+		}
+		public void setEmploymentStatus(String employmentStatus) {
+			this.employmentStatus = employmentStatus;
+		}
+		public LocalDate getResignationDate() {
+			return resignationDate;
+		}
+		public void setResignationDate(LocalDate resignationDate) {
+			this.resignationDate = resignationDate;
+		}
+		public LocalDate getLastWorkingDay() {
+			return lastWorkingDay;
+		}
+		public void setLastWorkingDay(LocalDate lastWorkingDay) {
+			this.lastWorkingDay = lastWorkingDay;
+		}
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", prefix=" + prefix + ", firstName=" + firstName + ", lastName=" + lastName
